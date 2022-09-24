@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { useState } from 'react';
 import './registration.css';
 
@@ -12,7 +12,6 @@ const Registration = () => {
 
   const handleUserName = (e) => {
     setUser({ ...user, userName: e.target.value });
-    // console.log(user.userName);
   };
 
   const handleEmail = (e) => {
