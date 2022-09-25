@@ -28,16 +28,16 @@ const Registration = () => {
 
   const handlePasswordConfirm = (e) => {
     setUser({ ...user, passwordConfirm: e.target.value });
-    if (user.passwordConfirm === user.password) {
-      alert(`Thank you for your registration.`);
-    } else {
-      alert(`Passwords don't match!`);
-    }
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(user);
+    if (user.passwordConfirm === user.password && user.password !== '') {
+      alert(`Thank you for your registration.`);
+    } else {
+      alert(`Passwords don't match!`);
+    }
   };
 
   return (
@@ -77,11 +77,9 @@ const Registration = () => {
           type="password"
           placeholder="Password Confirm"
           value={user.passwordConfirm}
-          onChange={(e) => {
-            setUser({ ...user, passwordConfirm: e.target.value });
-          }}
+          onChange={handlePasswordConfirm}
         />
-        <button type="submit" onClick={(handleSubmit, handlePasswordConfirm)}>
+        <button type="submit" onClick={handleSubmit}>
           REGISTER
         </button>
       </form>
